@@ -42,9 +42,42 @@
 
 ## Multi-tasking 
 * Multitasking is the ability of the operating system to execute multiple programs simultaneously, it is possible by switching rapidly between processes.
-* **cooperative multitasking** : The programs share control of the CPU.
+* **cooperative multitasking** : the kernel relies on ccoperative schuduling,the programs share control of the CPU.
 * **preemptive multitasking** : The operating system sets time limits for each program, if a program runs for too long, the operating system gives other programs a chance to run, it prevents the program from **hogging** all the CPU time.
 
+## Preemptive Kernel 
+* A process is preemptive if it can be interrupted by the operating system while running. 
+* A Kernel is preemptive if a process can be preemptive while running in kernel mode.
+* A kernel may support preemptive multitasking (using timers).
+
+## Pageable Kernel Memory : 
+supporting pageable kernel memory means when that parts of kernel's memory, including its code, stack or dynamic allocated memory can be temporarily swapped out to disk when they are not actively used, this process called **Swapping mechanism** and prevents memory exhaustion. 
+
+## Kernel Stack 
+* Kernel stack provides a dedicated space for executing kernel code, handling interrupts, managing process state and storing temporary data structures.
+* Each process has a kernel stack.  
+* Kernel stack ensures the execution of kernel functions while maintaining isolation between processes.
+
+## Portability 
+**Modern kernels are composed of :**
+* **Architecture and machine specific code** : This section contains code that is specific to a particular computer architecture, includes low-level routines, hardware initialization code. It is written in both C and assembly language.
+* **Independent Architecture Code** : This section contains commun components across different architectures (kernel/device drivers), it is written in C language.
+
+## Multiprocessing 
+* Multiprocessing refers to the ability of a computer to execute multiple processes simultaneously, using CPU cores.  
+### Asymmetric MultiProcessing 
+* The primary CPU (master) responsible for running the operating system and managing system ressources, while other CPUs are dedicated to specific tasks or functions.
+* Used for embedded systems, real-time applications, where tasks have different requirement and priorities.
+![image](https://github.com/GhassenHafsiaINSAT/linux-kernel-labs/assets/110825502/33b1af6a-073b-441f-b6c1-1ad37cc29371)
+
+### Symetric MultiProcessing 
+* All CPUs are treated equally and have equal acess to system ressources.  
+* tasks are parallelized and executed concurrently across multiple CPU cores.
+![image](https://github.com/GhassenHafsiaINSAT/linux-kernel-labs/assets/110825502/8b5f798d-8748-4029-bb13-ae59f22ddc92)
+
+## CPU scalability 
+* It refers to the ability of a computer to utilize additional CPU cores as the system workload increases. 
 
 
+  
 
